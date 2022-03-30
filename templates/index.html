@@ -1,0 +1,101 @@
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fish Species Predictor</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.1.0/js/all.js"></script>
+  </head>
+  <body>
+      <div class="block">
+          <section class="hero is-dark is-bold">
+              <div class="hero-body">
+                  <div class="container has-text-centered">
+                      <h1 class="title">Fish Species Predictor</h1>
+                      <h2 class="subtitle">Web App</h2>
+                  </div><br>
+                  <div class="container has-text-centered">
+                        <a href="{{url_for('index')}}" class="button is-info is-rounded has-text-centered">Reset</a>
+                        <a href="{{url_for('preview')}}" class="button is-link is-rounded has-text-centered">View Dataset</a>
+                  </div>
+
+              </div>
+          </section>
+      </div>
+      <article class="message is-primary">
+          <div class="message-header">
+              <p>Inputs</p>
+          </div>
+          <div class="message-body">
+            <div class="card">
+                <!--
+                <header class="card-header">
+                    <p class="card-header-title is-centered">Inputs</p>
+                </header> -->
+                <div class="card-content">
+                    <form action="{{ url_for('analyze') }}" method="POST">
+                        <div class="columns">
+                            <div class="column">
+                                    <div class="field">
+                                            <label for="Weight" class="label">Weight</label>
+                                            <div class="control">
+                                                <input type="number" name="Weight" class="input" placeholder="Number between 200 and 500" min="200" max="500" step="0.1">
+                                            </div>
+                                        </div>
+                                    <div class="field">
+                                            <label for="Length1" class="label">Length1 </label>
+                                            <div class="control">
+                                                <input type="number" name="Length1" class="input" placeholder="Number between 22 and 27" min="22" max="27" step="0.1">
+                                            </div>
+                                    </div>
+                                    <div class="field">
+                                            <label for="Length2" class="label">Length2 </label>
+                                            <div class="control">
+                                                <input type="number" name="Length2" class="input" placeholder="Number between 25 and 30" min="25" max="30" step="0.1">
+                                            </div>
+                                    </div>
+
+                                    <div class="field">
+                                            <label for="Length3" class="label">Length3 </label>
+                                            <div class="control">
+                                                <input type="number" name="Length3" class="input" placeholder="Number between 30 and 35" min="30" max="35" step="0.1">
+                                            </div>
+                                    </div>
+
+                                    <div class="field">
+                                            <label for="Height" class="label">Height </label>
+                                            <div class="control">
+                                                <input type="number" name="Height" class="input" placeholder="Number between 10 and 18" min="10" max="18" step="0.1">
+                                            </div>
+                                    </div>
+
+                                    <div class="field">
+                                            <label for="Width" class="label">Width </label>
+                                            <div class="control">
+                                                <input type="number" name="Width" class="input" placeholder="Number between 3 and 7" min="3" max="7" step="0.1">
+                                            </div>
+                                    </div>
+                            </div>
+                        </div>
+
+
+                      <br>
+                      <div class="container has-text-centered">
+                                <br>
+                                <button class="button is-primary" type="submit">Predict</button>
+                                <button class="button" type="reset">Clear</button>
+                      </div>
+
+                    </form>
+                </div>
+            </div>
+          </div>
+      </article>
+
+   </body>
+</html>
+
+{% endblock %}
